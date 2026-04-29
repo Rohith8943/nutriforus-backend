@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Dynamically determine backend URL based on the current hostname
 const hostname = window.location.hostname;
-const API_URL = `https://nutriforus.vercel.app/api`;
+const API_URL = `https://nutriforus.onrender.com/api`;
 
 const api = axios.create({
   baseURL: API_URL,
