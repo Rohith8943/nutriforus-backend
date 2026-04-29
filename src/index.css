@@ -1,0 +1,99 @@
+:root {
+  --primary: #22c55e;
+  --primary-glow: rgba(34, 197, 94, 0.15);
+  --bg-dark: #030712;
+  --bg-card: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-muted-2: #64748b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(34, 197, 94, 0.2);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0;
+  padding-bottom: 100px;
+  position: relative;
+  background-color: var(--bg-dark);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Glassmorphism Base */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Fit Screen Utility */
+.fit-screen {
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.fit-screen::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* Navigation Overlays Fix */
+.nav-spacer {
+  height: 80px;
+  flex-shrink: 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

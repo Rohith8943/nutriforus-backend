@@ -1,0 +1,382 @@
+.meal-planner-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header Section */
+.planner-header-fixed {
+  background: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header-nav h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.plan-badge {
+  background: var(--primary-glow);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Horizontal Calendar */
+.horizontal-calendar {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.day-card {
+  flex: 1;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.day-abbr {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.day-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.day-card.active .day-abbr {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.day-card.active .day-dot {
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  width: 12px;
+  border-radius: 10px;
+}
+
+/* Scroll Content */
+.planner-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 16px 40px; /* Reduced bottom padding since footer is gone */
+  scrollbar-width: none;
+}
+
+.planner-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Daily Totals Card (Top) */
+.daily-totals-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+  border: 1px solid var(--border);
+  padding: 24px 20px;
+  border-radius: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.totals-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.total-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+}
+
+.total-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.doctor-tag-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 14px;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.doctor-tag-mini span {
+  font-weight: 600;
+}
+
+
+/* Section Label */
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  padding-left: 4px;
+}
+
+/* Meal Cards */
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meal-card-premium {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.meal-card-premium.completed {
+  background: rgba(34, 197, 94, 0.03);
+  border-color: rgba(34, 197, 94, 0.1);
+}
+
+.meal-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.meal-icon-box.breakfast { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.meal-icon-box.lunch { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.meal-icon-box.snack { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.meal-icon-box.dinner { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-top-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.meal-type-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted-2);
+}
+
+.meal-time-tag {
+  font-size: 0.65rem;
+  color: var(--text-muted-2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+}
+
+.meal-info h4 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.meal-stats-row {
+  display: flex;
+  gap: 12px;
+}
+
+.stat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Status Button */
+.meal-status-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text-muted-2);
+  transition: all 0.2s ease;
+}
+
+.meal-status-btn.done {
+  color: var(--primary);
+}
+
+.circle-outline {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+
+
+/* Empty States */
+.planner-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-icon-wrap {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--text-muted-2);
+}
+
+.contact-btn {
+  margin-top: 24px;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.empty-day-box {
+  padding: 30px;
+  text-align: center;
+  color: var(--text-muted-2);
+  font-size: 0.9rem;
+}
+
+/* Loading */
+.planner-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.loading-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  animation: pulse-loading 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-loading {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}

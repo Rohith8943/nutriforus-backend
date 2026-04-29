@@ -1,0 +1,264 @@
+.plans-page-mobile {
+  padding: 20px 16px 120px;
+}
+
+.plans-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.plans-label {
+  display: inline-block;
+  background: var(--primary-glow);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.plans-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.plans-header h1 span {
+  color: var(--primary);
+}
+
+.plans-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Plans List */
+.plans-list-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plan-card-mobile {
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.plan-card-mobile.active {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.plan-card-mobile.is-active {
+  border-color: var(--primary);
+  background: rgba(34, 197, 94, 0.03);
+}
+
+.active-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primary);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.plan-badge-mini {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.plan-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.plan-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plan-title-info {
+  flex: 1;
+}
+
+.plan-title-info h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.plan-price-mini {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-price-mini .amount {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.plan-price-mini .period {
+  font-size: 0.7rem;
+  color: var(--text-muted-2);
+}
+
+.plan-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Expanded Section */
+.plan-details-expanded {
+  overflow: hidden;
+}
+
+.plan-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.plan-features-mini {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-features-mini li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.plan-features-mini li.disabled {
+  color: var(--text-muted-2);
+  text-decoration: line-through;
+}
+
+.plan-features-mini .ok { color: var(--primary); }
+.plan-features-mini .not-ok { color: #ef4444; }
+
+.plan-subscribe-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  color: #000;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.plan-subscribe-btn.loading {
+  opacity: 0.7;
+}
+
+.spinner {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Success Toast */
+.subscription-success-toast {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+}
+
+/* Loading State */
+.plans-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.loading-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  animation: pulse-loading 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-loading {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.plans-security {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
